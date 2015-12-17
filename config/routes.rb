@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   post '/login' => 'auth#login'
   delete '/logout/:id' => 'auth#logout'
 
-  resources :holidays, only: [:create, :destroy, :index, :show, :update] do
-    resources :recipients, only: [:create, :destroy, :index, :show, :update] do
-      resources :gift_ideas, only: [:create, :destroy, :index, :update]
+  resources :events, only: [:create, :destroy, :index, :show, :update] do
+    resources :tasks, only: [:create, :destroy, :index, :show, :update] do
     end
   end
 end
